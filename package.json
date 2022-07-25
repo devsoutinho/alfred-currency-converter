@@ -1,22 +1,23 @@
 {
-    "name": "@devsoutinho/alfred-currency-converter",
-    "version": "1.0.0",
-    "type": "module",
-    "description": "My awesome unicorn workflow",
-    "main": "index.ts",
-    "author": {
-        "name": "Mario Souto",
-        "email": "soutomarios@gmail.com",
-        "url": "https://mariosouto.com"
-    },
-    "scripts": {
-        "postinstall": "alfy-init",
-        "preuninstall": "alfy-cleanup"
-    },
-    "dependencies": {
-        "alfy": "*",
-        "puppeteer": "^15.5.0",
-        "ts-node": "^10.9.1",
-        "typescript": "^4.7.4"
-    }
+  "private": false,
+  "name": "@devsoutinho/alfred-currency-converter",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "My awesome unicorn workflow",
+  "main": "index.ts",
+  "author": {
+    "name": "Mario Souto",
+    "email": "soutomarios@gmail.com",
+    "url": "https://mariosouto.com"
+  },
+  "scripts": {
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
+  },
+  "dependencies": {
+    "alfy": "*",
+    "puppeteer": "^15.5.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
 }
