@@ -1,0 +1,18 @@
+{
+	"name": "@devsoutinho/alfred-currency-converter",
+	"version": "1.0.0",
+  	"type": "module",
+	"description": "My awesome unicorn workflow",
+	"author": {
+		"name": "Mario Souto",
+		"email": "soutomarios@gmail.com",
+		"url": "https://mariosouto.com"
+	},
+	"scripts": {
+		"postinstall": "alfy-init",
+		"preuninstall": "alfy-cleanup"
+	},
+	"dependencies": {
+		"alfy": "*"
+	}
+}
