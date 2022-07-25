@@ -13,6 +13,7 @@
 		"preuninstall": "alfy-cleanup"
 	},
 	"dependencies": {
-		"alfy": "*"
+		"alfy": "*",
+		"puppeteer": "^15.5.0"
 	}
 }
