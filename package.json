@@ -1,7 +1,7 @@
 {
 	"name": "@devsoutinho/alfred-currency-converter",
 	"version": "1.0.0",
-  	"type": "module",
+	"type": "module",
 	"description": "My awesome unicorn workflow",
 	"author": {
 		"name": "Mario Souto",

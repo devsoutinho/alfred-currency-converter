@@ -37,25 +37,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>A785F171-1B19-466E-93A9-D47B5D46A86D</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -93,12 +74,31 @@
 				<key>type</key>
 				<integer>5</integer>
 				<key>withspace</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>EA0E5AA1-2FA4-4C99-AD3C-C619060FC82F</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>A785F171-1B19-466E-93A9-D47B5D46A86D</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -117,9 +117,9 @@
 		<key>EA0E5AA1-2FA4-4C99-AD3C-C619060FC82F</key>
 		<dict>
 			<key>xpos</key>
-			<real>170</real>
+			<real>165</real>
 			<key>ypos</key>
-			<real>325</real>
+			<real>135</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
