@@ -1,39 +1,56 @@
+import fetch from 'node-fetch';
 import alfy from 'alfy';
-import puppeteer from "puppeteer";
+import math from 'string-math';
+import dotenv from 'dotenv';
+
+dotenv.config({
+  path: `${process.env.HOME}/.dotfiles/dotenv/.env`,
+});
 
 // [INPUT]
 const input = alfy.input.trim();
+const API_KEY = process.env.CURRENCY_API_KEY;
+const AMOUNT = math(input);
+const FROM = "USD";
 
 // [PROCESS]
-const browser = await puppeteer.launch({ headless: true });
-const page = await browser.newPage();
-const moedaBase = `${input} dolar`;
-const moedaFinal = 'real';
-const currencyUrl = `https://www.google.com/search?q=${moedaBase}+para+${moedaFinal}&oq=${moedaBase}+para+${moedaFinal}&aqs=chrome.0.69i59j0l7.1726j0j4&sourceid=chrome&ie=UTF-8`;
-await page.goto(currencyUrl);
-const resultado = await page.evaluate(() => {
-    return document.querySelector('.a61j6.vk_gy.vk_sh.Hg3mWc').value;
-});
-await browser.close();
+const apiOutput = await fetch(`https://api.currencyscoop.com/v1/latest?api_key=${API_KEY}&from=${FROM}&amount=${AMOUNT}`)
+  .then((res) => res.json());
 
-
-const currencies = [
-    {
-        flag: '🇧🇷',
-		name: 'BRL',
-		prefix: "R$",
-		value: resultado,
-	},
-	{
-        flag: '🇺🇸',
-		name: 'USD',
-		prefix: "$",
-		value: input,
-	}
-];
+const rates = {
+  ...apiOutput.response.rates,
+  USD: AMOUNT,
+}
 
 // [OUTPUT]
+const valueOutput = (rate) => parseFloat(rate * AMOUNT).toFixed(2);
+const currencies = [
+  {
+    flag: '🇧🇷',
+    name: 'BRL',
+    prefix: "R$",
+    value: valueOutput(rates.BRL),
+  },
+  {
+    flag: '🇺🇸',
+    name: 'USD',
+    prefix: "$",
+    value: rates.USD,
+  },
+  {
+    flag: '🇦🇷',
+    name: 'ARS',
+    prefix: "$",
+    value: valueOutput(rates.ARS),
+  },
+  {
+    flag: '🇯🇵',
+    name: 'JPY',
+    prefix: "¥",
+    value: valueOutput(rates.JPY),
+  },
+];
 const output = currencies.map((currency) => ({
-	title: `${currency.flag} ${currency.prefix}${currency.value} - ${currency.name} `
+  title: `${currency.flag} ${currency.name} ${currency.prefix}${currency.value}`
 }));
 alfy.output(output);
