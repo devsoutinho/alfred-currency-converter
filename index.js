@@ -3,6 +3,12 @@ import alfy from 'alfy';
 import math from 'string-math';
 import dotenv from 'dotenv';
 
+function isNumeric(str) {
+  if (typeof str != "string") return false // we only process strings!  
+  return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+    !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+}
+
 dotenv.config({
   path: `${process.env.HOME}/.dotfiles/dotenv/.env`,
 });
@@ -10,7 +16,10 @@ dotenv.config({
 // [INPUT]
 const input = alfy.input.trim();
 const API_KEY = process.env.CURRENCY_API_KEY;
-const AMOUNT = math(input);
+const inputToMath = isNumeric(input.at(-1))
+  ? input
+  : `${input}0`;
+const AMOUNT = math(inputToMath);
 const FROM = 'USD';
 
 // [PROCESS]
