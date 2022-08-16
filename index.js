@@ -11,7 +11,7 @@ dotenv.config({
 const input = alfy.input.trim();
 const API_KEY = process.env.CURRENCY_API_KEY;
 const AMOUNT = math(input);
-const FROM = "USD";
+const FROM = 'USD';
 
 // [PROCESS]
 const apiOutput = await fetch(`https://api.currencyscoop.com/v1/latest?api_key=${API_KEY}&from=${FROM}&amount=${AMOUNT}`)
@@ -28,25 +28,31 @@ const currencies = [
   {
     flag: '🇧🇷',
     name: 'BRL',
-    prefix: "R$",
+    prefix: 'R$',
     value: valueOutput(rates.BRL),
   },
   {
     flag: '🇺🇸',
     name: 'USD',
-    prefix: "$",
+    prefix: '$',
     value: rates.USD,
+  },
+  {
+    flag: '🇪🇺',
+    name: 'EUR',
+    prefix: '€',
+    value: valueOutput(rates.EUR),
   },
   {
     flag: '🇦🇷',
     name: 'ARS',
-    prefix: "$",
+    prefix: '$',
     value: valueOutput(rates.ARS),
   },
   {
     flag: '🇯🇵',
     name: 'JPY',
-    prefix: "¥",
+    prefix: '¥',
     value: valueOutput(rates.JPY),
   },
 ];
